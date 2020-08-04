@@ -9,6 +9,16 @@
 
 <br>  
 
+>## 效果截图  
+>- **上下树效果截图**  
+><img src="./screensnap/ontree_scheduler_01.png" width=40% /><br>
+>- **挂树提醒截图**  
+><img src="./screensnap/ontree_scheduler_02.png" width=40% /><br>
+>- **重复上下树提醒截图**  
+><img src="./screensnap/ontree_scheduler_03.png" width=40% /><br>
+
+<br>  
+
 >## 使用说明  
 >使用本插件需要更改以下内容
 >>Hoshino/config.py 添加插件 ontree_scheduler  
