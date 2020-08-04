@@ -10,7 +10,7 @@
 <br>  
 
 >## 效果截图  
->![img](./screensnap/ontree_scheduler_01.png =300x600)  
+><img src="./screensnap/ontree_scheduler_01.png" width=50% />  
 >上下树效果截图  
 >![img](./screensnap/ontree_scheduler_02.png)  
 >挂树提醒截图  
