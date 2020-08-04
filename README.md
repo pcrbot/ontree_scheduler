@@ -1,4 +1,4 @@
-# 挂树提醒插件 <font size=3>V0.1</font> *for* HoshinoBot<br><font size=2>*Plugin [ Ontree Scheduler Ver0.1 ] for HoshinoBot* - *by Rayee*</font>  
+# 挂树提醒插件 <font size=3>V0.1</font> *for* HoshinoBot<br><font size=1>*Plugin [ Ontree Scheduler Ver0.1 ] for HoshinoBot* - *by Rayee*</font>  
   
 > **master分支为Hoshino V2插件，如需V1版本插件请切换分支**  
 > ## 功能介绍  
