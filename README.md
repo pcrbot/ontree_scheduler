@@ -1,5 +1,6 @@
-# 挂树提醒插件 <font size=3>V0.1</font> *for* HoshinoBot<br><font size=1>*Plugin [ Ontree Scheduler Ver0.1 ] for HoshinoBot* - *by Rayee*</font>  
+# 挂树提醒插件 <font size=3>V0.1</font> *for* HoshinoBot<br><font size=1>*[ Ontree Scheduler Ver0.1 ] for HoshinoBot* - *by Rayee*</font>  
   
+> **本插件为独立运行插件，无论你使用的是Hoshino - pcr_clanbattle还是yobot都可以使用  
 > **本分支为Hoshino V1插件，如需V2版本插件请切换master分支**  
 > ## 功能介绍  
 > 因 公主连结 游戏机制导致挂树时间限制1小时  
