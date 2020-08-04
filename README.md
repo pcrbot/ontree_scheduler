@@ -10,12 +10,12 @@
 <br>  
 
 >## 效果截图  
-><img src="./screensnap/ontree_scheduler_01.png" width=50% />  
 >上下树效果截图  
->![img](./screensnap/ontree_scheduler_02.png)  
+><img src="./screensnap/ontree_scheduler_01.png" width=40% /><br>
 >挂树提醒截图  
->![img](./screensnap/ontree_scheduler_03.png)  
+><img src="./screensnap/ontree_scheduler_02.png" width=40% /><br>
 >重复上下树提醒截图  
+><img src="./screensnap/ontree_scheduler_03.png" width=40% /><br>
 
 <br>  
 
