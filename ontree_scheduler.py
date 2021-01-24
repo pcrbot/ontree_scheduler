@@ -6,6 +6,7 @@ from nonebot import get_bot
 
 import hoshino
 from hoshino import Service
+from hoshino.typing import CQEvent
 
 sv = Service('挂树提醒', enable_on_default=True, help_='挂树提醒')
 
@@ -57,6 +58,51 @@ async def down_tree(session):
         msg = f'>>>挂树计时提醒\n[CQ:at,qq={user_id}]已经下树'
     await session.send(msg)
 
+@sv.on_command('sl')
+async def sl_down_tree(session):
+    #获取下树成员以及其所在群信息
+    ctx = session.ctx
+    user_id = ctx['user_id']
+    group_id = ctx['group_id']
+    #连接挂树记录数据库
+    con = sqlite3.connect(os.getcwd()+"/hoshino/modules/ontree_scheduler/tree.db")
+    cur = con.cursor()
+    #查询当前状态是否已经下树，如果在挂树则删除记录，未挂树则提示错误
+    query = cur.execute(f"SELECT COUNT(*) FROM tree WHERE qqid={user_id} AND gid={group_id}")
+    for row in query:
+        is_ontree = row[0]
+    if(is_ontree!=0):
+        cur.execute(f"DELETE FROM tree WHERE qqid={user_id} AND gid={group_id}")
+        con.commit()
+        con.close()
+        msg = f'>>>挂树计时提醒\n[CQ:at,qq={user_id}]已经下树'
+        await session.send(msg)
+
+
+@sv.on_prefix('报刀')
+async def baodao_down_tree(bot, ev: CQEvent):
+    cmd = ev.raw_message
+    content=cmd.split()
+    if(len(content)!=2):
+        return
+
+    #获取下树成员以及其所在群信息
+    user_id = ev['user_id']
+    group_id = ev['group_id']
+    #连接挂树记录数据库
+    con = sqlite3.connect(os.getcwd()+"/hoshino/modules/ontree_scheduler/tree.db")
+    cur = con.cursor()
+    #查询当前状态是否已经下树，如果在挂树则删除记录，未挂树则提示错误
+    query = cur.execute(f"SELECT COUNT(*) FROM tree WHERE qqid={user_id} AND gid={group_id}")
+    for row in query:
+        is_ontree = row[0]
+    if(is_ontree!=0):
+        cur.execute(f"DELETE FROM tree WHERE qqid={user_id} AND gid={group_id}")
+        con.commit()
+        con.close()
+        msg = f'>>>挂树计时提醒\n[CQ:at,qq={user_id}]已经下树'
+        await bot.send(ev,msg)
+
 @sv.on_command('查树')
 async def check_tree(session):
     ctx = session.ctx
@@ -81,8 +127,9 @@ async def check_tree(session):
     con.commit()
     con.close()
     return
+    
 @sv.on_command('尾刀')
-async def check_tree(session):
+async def weidao(session):
     ctx = session.ctx
     group_id = ctx['group_id']
     bot = get_bot()
