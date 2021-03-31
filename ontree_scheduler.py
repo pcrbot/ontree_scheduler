@@ -99,7 +99,7 @@ async def baodao_down_tree(bot, ev: CQEvent):
         msg = f'>>>挂树计时提醒\n[CQ:at,qq={user_id}]已经下树'
         await bot.send(ev,msg)
 
-@sv.on_rex(r'^尾刀 ?(?:\[CQ:at,qq=(\d+)\])? *(昨[日天])? *(?:[\:：](.*))?$')
+@sv.on_command('查树')
 async def check_tree(session):
     ctx = session.ctx
     group_id = ctx['group_id']
@@ -124,11 +124,10 @@ async def check_tree(session):
     con.close()
     return
     
-@sv.on_command('尾刀')
-async def weidao(session):
-    ctx = session.ctx
+@sv.on_rex(r'^尾刀 ?(?:\[CQ:at,qq=(\d+)\])? *(昨[日天])? *(?:[\:：](.*))?$')
+async def weidao(bot, ev: CQEvent):
+    ctx = ev
     group_id = ctx['group_id']
-    bot = get_bot()
     con = sqlite3.connect(os.getcwd()+"/hoshino/modules/ontree_scheduler/tree.db")
     cur = con.cursor()
     # cur.execute("SELECT qqid,gid,loss_time FROM tree WHERE (strftime('%s',loss_time)-strftime('%s',datetime(strftime('%s','now'), 'unixepoch', 'localtime'))) BETWEEN 0 AND 6000")
