@@ -36,10 +36,10 @@ async def climb_tree(session):
         msg = f'>>>挂树计时提醒\n[CQ:at,qq={user_id}]开始挂树\n因上报时间与游戏时间存在误差\n挂树时长按照55分钟计算\n开始时间:{climb_stime}\n下树期限:{loss_stime}'
     await session.send(msg)
 
-@sv.on_command('取消挂树')
-async def down_tree(session):
+@sv.on_rex(r'(取消挂树)|(下树)')
+async def down_tree(bot, ev: CQEvent):
     #获取下树成员以及其所在群信息
-    ctx = session.ctx
+    ctx = ev
     user_id = ctx['user_id']
     group_id = ctx['group_id']
     #连接挂树记录数据库
@@ -56,7 +56,7 @@ async def down_tree(session):
         con.commit()
         con.close()
         msg = f'>>>挂树计时提醒\n[CQ:at,qq={user_id}]已经下树'
-    await session.send(msg)
+    await bot.send_group_msg(group_id=group_id, message=msg)
 
 @sv.on_command('sl')
 async def sl_down_tree(session):
@@ -79,12 +79,8 @@ async def sl_down_tree(session):
         await session.send(msg)
 
 
-@sv.on_prefix('报刀')
+@sv.on_rex(r'^报刀 ?(\d+)([Ww万Kk千])? *(?:\[CQ:at,qq=(\d+)\])? *(昨[日天])? *(?:[\:：](.*))?$')
 async def baodao_down_tree(bot, ev: CQEvent):
-    cmd = ev.raw_message
-    content=cmd.split()
-    if(len(content)!=2):
-        return
 
     #获取下树成员以及其所在群信息
     user_id = ev['user_id']
@@ -103,7 +99,7 @@ async def baodao_down_tree(bot, ev: CQEvent):
         msg = f'>>>挂树计时提醒\n[CQ:at,qq={user_id}]已经下树'
         await bot.send(ev,msg)
 
-@sv.on_command('查树')
+@sv.on_rex(r'^尾刀 ?(?:\[CQ:at,qq=(\d+)\])? *(昨[日天])? *(?:[\:：](.*))?$')
 async def check_tree(session):
     ctx = session.ctx
     group_id = ctx['group_id']
