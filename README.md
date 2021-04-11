@@ -1,45 +1,22 @@
-# 挂树提醒插件 <font size=3>V0.1</font> *for* HoshinoBot<br><font size=1>*[ Ontree Scheduler Ver0.1 ] for HoshinoBot* - *by Rayee*</font>  
-  
-> **本插件为独立运行插件，无论你使用的是Hoshino - pcr_clanbattle还是yobot都可以使用**  
-> **master分支为Hoshino V2插件，如需V1版本插件请切换分支**  
+# 挂树提醒插件 <font size=3>V0.2</font> *for* HoshinoBot<br>
+
 > ## 功能介绍  
-> 因 公主连结 游戏机制导致挂树时间限制1小时  
-> 本插件通过粗略时间计算提醒玩家及时下树 避免掉刀  
-> PS：插件轮巡机制支持多群同时使用  
+> 1. 挂树时，估算预计啥时间
+> 2. 每10分钟提醒一次在树人数、最早挂树的人还剩多少时间
+> 3. 尾刀自动下树
+> 4. 查树时显示每个人还剩多少时间
+
+>##   
+
+>## 起作用的指令  
+>1.挂树
+>
+>2.取消挂树
+>
+>3.尾刀（尾刀后自动下树）
+>
+>4.sl （sl后自动下树）
+>
+>5.报刀 xxx （报刀后自动下树）
 
 <br>  
-
->## 效果截图  
->- **上下树效果截图**  
-><img src="./screensnap/ontree_scheduler_01.png" width=40% /><br>
->- **挂树提醒截图**  
-><img src="./screensnap/ontree_scheduler_02.png" width=40% /><br>
->- **重复上下树提醒截图**  
-><img src="./screensnap/ontree_scheduler_03.png" width=40% /><br>
-
-<br>  
-
->## 使用说明  
->使用本插件需要更改以下内容
->>Hoshino/config.py 添加插件 ontree_scheduler  
->>文件结构 &nbsp;*ontree_scheduler/ontree_scheduler.py*&nbsp; *ontree_scheduler/tree.db*  
->>yobot 公会战设置中取消 挂树/取消挂树 两个命令在群中的提示  
->>修改 ontree_scheduler.py 第12,38行来更换 挂树/取消挂树 的命令  
->>修改 ontree_scheduler.py 第60行来改变轮巡器的时间周期（默认3分钟检查一次）
->>  
->>PS1：请勿删除 tree.db , 该文件记录玩家上树时间及信息  
->>PS2：挂树数据若未接收 取消挂树 指令将会在一小时期限后自动删除  
-  
-<br>  
-
->## 使用方法  
->发送 挂树* 指令进行记录   
->若 挂树期限结束前下树 发送 取消挂树* 指令删除记录  
->若 挂树期限结束10分钟内仍未下树 BOT会三次*提醒下树 时间超过期限后记录自动删除  
->  
->PS*：两条指令可自定义，BOT的提醒次数会因为轮巡器时间周期而改变
-  
-<br>  
-
-### 本插件为作者测试后的0.1版本，不确定功能稳定，若发现BUG请反馈作者  
-### *Rayee Programed on 2020/08/04*
